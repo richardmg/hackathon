@@ -3,7 +3,10 @@
 
 #include <QtCore/QtCore>
 
-#define Q_CODEBEHIND(TYPE, ID) \
+#define Q_CODEBEHIND(ID) \
+    QObject *ID() { return property(QT_STRINGIFY(ID)).value<QObject *>(); }
+
+#define Q_CODEBEHIND_REGISTER(TYPE, ID) \
 extern QHash<QString, QObject *> qqmlcodeBehindList; \
 namespace { \
     class CodeBehindReg \

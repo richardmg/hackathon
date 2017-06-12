@@ -1,23 +1,25 @@
 #ifndef CODEBEHIND_H
 #define CODEBEHIND_H
 
+#include "qglobalext.h"
+
 #include <QObject>
 #include <QDebug>
 
 class MyRectangleCodeBehind : public QObject
 {
     Q_OBJECT
+    Q_CODEBEHIND(Root)
 
 public slots:
 
     void on_myRectangle_widthChanged()
     {
-        qDebug() << "CALLED 1";
-    }
+        QObject *myRectangle = Root()->findChild<QObject *>("myRectangle");
+        qDebug() << "Width changed:" << myRectangle->property("width");
 
-    void on_myRectangle2_widthChanged()
-    {
-        qDebug() << "CALLED 2";
+        QObject *myText = Root()->findChild<QObject *>("myText");
+        myText->setProperty("text", "Clicked");
     }
 };
 

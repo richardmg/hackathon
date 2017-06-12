@@ -15,18 +15,16 @@ Window {
         height: 200
         color: "red"
 
-        Rectangle {
-            id: rectangle2
-            objectName: "myRectangle2"
-            width: parent.width / 2
-            height: parent.height / 2
-            color: "blue"
+        Text {
+            id: text
+            objectName: "myText"
+            text: "Click me"
+            font.pixelSize: 30
         }
-    }
 
-    Timer {
-        interval: 1000;
-        running: true
-        onTriggered: rectangle.width = 100
+        MouseArea {
+            anchors.fill: parent
+            onClicked: rectangle.width = 300
+        }
     }
 }
