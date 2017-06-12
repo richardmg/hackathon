@@ -21,6 +21,11 @@ public slots:
         QObject *myText = Root()->findChild<QObject *>("myText");
         myText->setProperty("text", "Clicked");
     }
+
+    void doSomething()
+    {
+        qDebug() << "Do something called";
+    }
 };
 
 #endif // CODEBEHIND_H

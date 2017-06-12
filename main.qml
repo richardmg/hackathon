@@ -2,6 +2,7 @@ import QtQuick 2.1
 import QtQuick.Window 2.1
 
 Window {
+    id: root
     width: 480
     height: 640
     visible: true
@@ -24,7 +25,10 @@ Window {
 
         MouseArea {
             anchors.fill: parent
-            onClicked: rectangle.width = 300
+            onClicked: {
+                rectangle.width = 300
+                codeBehindRoot.doSomething();
+            }
         }
     }
 }
