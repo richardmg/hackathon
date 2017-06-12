@@ -12,7 +12,12 @@ public slots:
 
     void on_myRectangle_widthChanged()
     {
-        qDebug() << "CALLED";
+        qDebug() << "CALLED 1";
+    }
+
+    void on_myRectangle2_widthChanged()
+    {
+        qDebug() << "CALLED 2";
     }
 };
 

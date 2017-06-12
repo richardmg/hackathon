@@ -14,7 +14,14 @@ Window {
         width: 200
         height: 200
         color: "red"
-        anchors.centerIn: parent
+
+        Rectangle {
+            id: rectangle2
+            objectName: "myRectangle2"
+            width: parent.width / 2
+            height: parent.height / 2
+            color: "blue"
+        }
     }
 
     Timer {
