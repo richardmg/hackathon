@@ -12,7 +12,7 @@
 class Spaceship : public QObject
 {
     Q_OBJECT
-    Q_CODEBEHIND(spaceship)
+    Q_CODEBEHIND(Spaceship)
 
 public slots:
 

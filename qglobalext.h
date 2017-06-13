@@ -4,9 +4,9 @@
 #include <QtCore/QtCore>
 
 #define Q_CODEBEHIND(ID) \
-    spaceship_ui &ui() \
+    ID##_ui &ui() \
     { \
-        static spaceship_ui ui(property(QT_STRINGIFY(ID)).value<QObject *>()); \
+        static ID##_ui ui(property(QT_STRINGIFY(ID)).value<QObject *>()); \
         return ui; \
     }
 

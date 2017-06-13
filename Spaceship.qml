@@ -2,7 +2,7 @@ import QtQuick 2.1
 import QtQuick.Controls 1.4
 
 Item {
-    objectName: "spaceship"
+    objectName: "Spaceship"
 
     implicitWidth: parent.width
     implicitHeight: parent.height
@@ -27,7 +27,7 @@ Item {
 
         Button {
             text: "Set random color"
-            onClicked: codebehind_spaceship.setRandomColor();
+            onClicked: codebehind_Spaceship.setRandomColor();
         }
 
     }

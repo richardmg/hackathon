@@ -3,17 +3,17 @@
 
 #include <QtCore/QtCore>
 
-struct spaceship_ui {
+struct Spaceship_ui {
 public:
-    spaceship_ui(QObject *o)
+    Spaceship_ui(QObject *o)
     {
         Q_ASSERT(o);
-        spaceship = o;
+        Spaceship = o;
         colorRectangle = o->findChild<QObject *>("colorRect");
         Q_ASSERT(colorRectangle);
     }
 
-    QObject *spaceship;
+    QObject *Spaceship;
     QObject *colorRectangle;
 };
 
