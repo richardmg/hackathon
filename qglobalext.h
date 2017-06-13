@@ -10,7 +10,7 @@
         return ui; \
     }
 
-#define Q_CODEBEHIND_REGISTER(TYPE, ID) \
+#define Q_CODEBEHIND_REGISTER(ID) \
 extern QHash<QString, QObject *> qqmlcodeBehindList; \
 namespace { \
     class CodeBehindReg \
@@ -18,8 +18,8 @@ namespace { \
         static CodeBehindReg codeBehindRegister; \
         explicit CodeBehindReg() \
         { \
-            QString id(QLatin1String(ID)); \
-            qqmlcodeBehindList.insert(id, new TYPE()); \
+            QString id(QLatin1String(QT_STRINGIFY(ID))); \
+            qqmlcodeBehindList.insert(id, new ID()); \
         } \
     }; \
     CodeBehindReg CodeBehindReg::codeBehindRegister; \
