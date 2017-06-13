@@ -8,11 +8,14 @@ RESOURCES += main.qrc
 
 # Input
 SOURCES += main.cpp \
-    myrectanglecodebehind.cpp
+    spaceship.cpp
 
 OTHER_FILES += \
     main.qml
 
 HEADERS += \
     qglobalext.h \
-    myrectanglecodebehind.h
+    spaceship.h
+
+DISTFILES += \
+    Spaceship.qml

@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
+    <file>main.qml</file>
+    <file>Spaceship.qml</file>
     </qresource>
 </RCC>
