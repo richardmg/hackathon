@@ -7,6 +7,8 @@
 #include <QDebug>
 #include <QColor>
 
+#include "spaceship.ui.h"
+
 class Spaceship : public QObject
 {
     Q_OBJECT
@@ -16,7 +18,7 @@ public slots:
 
     void on_colorRect_colorChanged()
     {
-        QColor c = spaceship()->findChild<QObject *>("colorRect")->property("color").value<QColor>();
+        QColor c = ui().colorRectangle->property("color").value<QColor>();
         qDebug() << "color changed to" << c;
     }
 
@@ -27,7 +29,7 @@ public slots:
                     255 * ((double)qrand() / RAND_MAX),
                     255 * ((double)qrand() / RAND_MAX));
 
-        spaceship()->findChild<QObject *>("colorRect")->setProperty("color", color);
+        ui().colorRectangle->setProperty("color", color);
     }
 
 };

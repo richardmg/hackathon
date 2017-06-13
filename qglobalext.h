@@ -4,7 +4,11 @@
 #include <QtCore/QtCore>
 
 #define Q_CODEBEHIND(ID) \
-    QObject *ID() { return property(QT_STRINGIFY(ID)).value<QObject *>(); }
+    spaceship_ui &ui() \
+    { \
+        static spaceship_ui ui(property(QT_STRINGIFY(ID)).value<QObject *>()); \
+        return ui; \
+    }
 
 #define Q_CODEBEHIND_REGISTER(TYPE, ID) \
 extern QHash<QString, QObject *> qqmlcodeBehindList; \

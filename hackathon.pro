@@ -15,7 +15,8 @@ OTHER_FILES += \
 
 HEADERS += \
     qglobalext.h \
-    spaceship.h
+    spaceship.h \
+    spaceship.ui.h
 
 DISTFILES += \
     Spaceship.qml
