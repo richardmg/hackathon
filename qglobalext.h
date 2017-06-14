@@ -3,11 +3,22 @@
 
 #include <QtCore/QtCore>
 
-#define Q_CODEBEHIND(ID) \
-    ID##_ui &ui() \
+// Use Q_CODEBEHIND(ID) if you want something else that the class name as look-up ID
+#define Q_CODEBEHIND_WITH_ID(ID) \
+    template <class T = QObject *> \
+    QObject *ui(const char *objectName) \
     { \
-        static ID##_ui ui(property(QT_STRINGIFY(ID)).value<QObject *>()); \
-        return ui; \
+        static QObject *root = property(QT_STRINGIFY(ID)).value<QObject *>(); \
+        return root->findChild<T>(objectName); \
+    }
+
+// Use Q_CODEBEHIND(ID) if you want the class name as look-up ID
+#define Q_CODEBEHIND \
+    template <class T = QObject *> \
+    QObject *ui(const char *objectName) \
+    { \
+        static QObject *root = property(metaObject()->className()).value<QObject *>(); \
+        return root->findChild<T>(objectName); \
     }
 
 #define Q_CODEBEHIND_REGISTER(ID) \

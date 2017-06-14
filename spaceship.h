@@ -7,18 +7,21 @@
 #include <QDebug>
 #include <QColor>
 
-#include "spaceship.ui.h"
-
 class Spaceship : public QObject
 {
     Q_OBJECT
-    Q_CODEBEHIND(Spaceship)
+    Q_CODEBEHIND
 
 public slots:
 
+    void on_blueButton_clicked()
+    {
+        ui("colorRect")->setProperty("color", QColor(Qt::blue));
+    }
+
     void on_colorRect_colorChanged()
     {
-        QColor c = ui().colorRectangle->property("color").value<QColor>();
+        QColor c = ui<QObject *>("colorRect")->property("color").value<QColor>();
         qDebug() << "color changed to" << c;
     }
 
@@ -29,7 +32,7 @@ public slots:
                     255 * ((double)qrand() / RAND_MAX),
                     255 * ((double)qrand() / RAND_MAX));
 
-        ui().colorRectangle->setProperty("color", color);
+        ui<QObject *>("colorRect")->setProperty("color", color);
     }
 
 };

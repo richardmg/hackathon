@@ -2,7 +2,8 @@ import QtQuick 2.1
 import QtQuick.Controls 1.4
 
 Item {
-    objectName: "Spaceship"
+    // todo: use filename (Spaceship(.qml)) rather than a codeBehind- or objectName property
+    property string codeBehind: "Spaceship"
 
     implicitWidth: parent.width
     implicitHeight: parent.height
@@ -21,8 +22,8 @@ Item {
         }
 
         Button {
+            objectName: "blueButton"
             text: "Set blue color"
-            onClicked: colorRect.color = "blue"
         }
 
         Button {
