@@ -19,4 +19,5 @@ HEADERS += \
     spaceship.ui.h
 
 DISTFILES += \
-    Spaceship.qml
+    Spaceship.qml \
+    qqmlobjectcreator.patch
